@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000",
+    "start:pm2": "pm2 start ecosystem.config.js",
     "lint": "eslint",
     "db:migrate": "tsx scripts/run-sql.ts supabase/schema.sql",
     "db:migrate:courses": "tsx scripts/run-sql.ts supabase/course-applications-migration.sql",
