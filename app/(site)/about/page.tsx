@@ -4,14 +4,15 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { teamMembers } from "@/lib/data/static";
 import { getSiteSettings } from "@/lib/data/queries";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { buildPageMetadata, seoKeywords } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "About SoftPulse — Software House & IT Institute in Sargodha",
   description:
-    "Meet the SoftPulse team — a software house and IT training institute in Sargodha, Pakistan. 50+ projects delivered, 500+ students trained at Al Rehman Trade Center, Sargodha.",
+    "Meet SoftPulse — Sargodha's software house & IT training institute. 50+ projects, 500+ students trained. Team led by Founder & CEO Mahar Mudassar. Visit us at Al Rehman Trade Center, Sargodha.",
   path: "/about",
-  keywords: [...seoKeywords.courses, ...seoKeywords.services],
+  keywords: [...seoKeywords.courses, ...seoKeywords.services, ...seoKeywords.local],
 });
 
 export default async function AboutPage() {
@@ -22,7 +23,12 @@ export default async function AboutPage() {
       <section className="pt-32 pb-16 gradient-bg relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
         <div className="relative max-w-7xl mx-auto px-6 text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About SoftPulse</h1>
+          <div className="max-w-2xl mx-auto text-left mb-6">
+            <Breadcrumbs light items={[{ name: "About Us", path: "/about" }]} />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            About SoftPulse — Sargodha
+          </h1>
           <p className="text-lg text-blue-100 max-w-2xl mx-auto">
             A software house and IT training institute in Sargodha — building
             digital products and training the next generation of developers.

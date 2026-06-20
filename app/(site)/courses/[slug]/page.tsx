@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Clock, BarChart, CheckCircle, ArrowLeft, Wrench, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { CourseApplyForm } from "@/components/courses/CourseApplyForm";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { courses } from "@/lib/data/static";
 import {
@@ -56,6 +57,13 @@ export default async function CoursePage({ params }: Props) {
       <section className="pt-32 pb-16 gradient-bg relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
         <div className="relative max-w-7xl mx-auto px-6">
+          <Breadcrumbs
+            light
+            items={[
+              { name: "IT Courses in Sargodha", path: "/courses" },
+              { name: courseSeoTitle(course), path: `/courses/${slug}` },
+            ]}
+          />
           <Link
             href="/courses"
             className="inline-flex items-center gap-2 text-blue-200 hover:text-white text-sm mb-6 transition-colors"

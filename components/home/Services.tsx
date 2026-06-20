@@ -26,8 +26,8 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           label="What We Do"
-          title="Our Services"
-          description="End-to-end digital solutions tailored to your business goals, from concept to launch and beyond."
+          title="Software Development Services in Sargodha"
+          description="SoftPulse software house delivers web apps, mobile apps, Shopify stores, and UI/UX design for businesses in Sargodha and worldwide."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -41,7 +41,9 @@ export function Services() {
                 <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mb-6 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
                   <Icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                <h3 className="text-xl font-bold mb-3">
+                  {service.title} in Sargodha
+                </h3>
                 <p className="text-muted leading-relaxed mb-4">
                   {service.description}
                 </p>

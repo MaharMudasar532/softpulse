@@ -5,6 +5,9 @@ import { ArrowLeft, CheckCircle, Globe } from "lucide-react";
 import { StoreButtons } from "@/components/ui/StoreButtons";
 import { Button } from "@/components/ui/Button";
 import { getPortfolioItemBySlug, getPortfolioSlugs } from "@/lib/data/queries";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildPageMetadata, portfolioJsonLd, seoKeywords } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -19,10 +22,13 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const item = await getPortfolioItemBySlug(slug);
   if (!item) return { title: "Project Not Found" };
-  return {
-    title: item.title,
-    description: item.description,
-  };
+  return buildPageMetadata({
+    title: `${item.title} — Portfolio Project Sargodha`,
+    description: `${item.description} Built by SoftPulse software house in Sargodha, Pakistan.`,
+    path: `/portfolio/${slug}`,
+    keywords: [...seoKeywords.services, item.category, `${item.title} Sargodha`],
+    type: "article",
+  });
 }
 
 export default async function PortfolioDetailPage({ params }: Props) {
@@ -38,9 +44,17 @@ export default async function PortfolioDetailPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd data={portfolioJsonLd(item)} />
       <section className="pt-28 pb-12 gradient-bg relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
         <div className="relative max-w-7xl mx-auto px-6">
+          <Breadcrumbs
+            light
+            items={[
+              { name: "Portfolio", path: "/#portfolio" },
+              { name: item.title, path: `/portfolio/${slug}` },
+            ]}
+          />
           <Link
             href="/#portfolio"
             className="inline-flex items-center gap-2 text-blue-200 hover:text-white text-sm mb-6 transition-colors"
@@ -72,7 +86,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
             <div className="rounded-2xl overflow-hidden border border-border shadow-2xl shadow-primary/10">
               <Image
                 src={item.image_url}
-                alt={item.title}
+                alt={`${item.title} — ${item.category} by SoftPulse Sargodha`}
                 width={1600}
                 height={900}
                 className="w-full h-auto"

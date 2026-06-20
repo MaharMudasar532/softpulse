@@ -10,14 +10,22 @@ import {
 } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { FaqSection } from "@/components/seo/FaqSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { services } from "@/lib/data/static";
-import { buildPageMetadata, seoKeywords, servicesPageJsonLd } from "@/lib/seo";
+import {
+  buildPageMetadata,
+  faqJsonLd,
+  seoKeywords,
+  servicesFaq,
+  servicesPageJsonLd,
+} from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Software Development Services in Sargodha — Web & Mobile Apps",
   description:
-    "SoftPulse software house in Sargodha offers web development, mobile app development, React Native, Shopify, UI/UX design, and AI integrations. Hire expert developers at Al Rehman Trade Center, Sargodha, Pakistan.",
+    "Hire SoftPulse — top software house in Sargodha for web development, mobile apps, React Native, Shopify, UI/UX & AI. 50+ projects shipped. Free consultation at Al Rehman Trade Center, Sargodha.",
   path: "/services",
   keywords: seoKeywords.services,
 });
@@ -34,7 +42,7 @@ const iconMap = {
 export default function ServicesPage() {
   return (
     <>
-      <JsonLd data={servicesPageJsonLd()} />
+      <JsonLd data={[servicesPageJsonLd(), faqJsonLd(servicesFaq)]} />
       <section className="pt-32 pb-16 gradient-bg relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
         <div className="relative max-w-7xl mx-auto px-6 text-center text-white">
@@ -50,7 +58,9 @@ export default function ServicesPage() {
       </section>
 
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 space-y-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <Breadcrumbs items={[{ name: "Services in Sargodha", path: "/services" }]} />
+          <div className="space-y-24">
           {services.map((service, index) => {
             const Icon = iconMap[service.icon as keyof typeof iconMap];
             const isEven = index % 2 === 0;
@@ -91,25 +101,15 @@ export default function ServicesPage() {
               </div>
             );
           })}
+          </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white border-t border-border">
-        <div className="max-w-3xl mx-auto px-6 text-center text-muted leading-relaxed text-sm">
-          <h2 className="text-xl font-bold text-foreground mb-4">
-            Leading Software House in Sargodha, Pakistan
-          </h2>
-          <p>
-            Looking for a software house in Sargodha? SoftPulse provides
-            professional web development services, mobile app development,
-            React Native apps, Shopify e-commerce solutions, and UI/UX design —
-            all from our office at 176-FF Al Rehman Trade Center, Sargodha.
-            Whether you need a custom web application, cross-platform mobile app,
-            or Shopify store, our Sargodha-based team delivers quality software
-            on time and on budget.
-          </p>
-        </div>
-      </section>
+      <FaqSection
+        title="Software House in Sargodha — FAQ"
+        items={servicesFaq}
+        className="bg-white border-t border-border"
+      />
 
       <section className="py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-6 text-center">

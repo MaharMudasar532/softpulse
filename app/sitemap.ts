@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
 import { courses } from "@/lib/data/static";
+import { getPortfolioSlugs } from "@/lib/data/queries";
 import { SITE_URL } from "@/lib/seo";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const portfolioSlugs = await getPortfolioSlugs();
 
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -28,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/about`,
       lastModified: now,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.85,
     },
   ];
 
@@ -39,5 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...staticPages, ...coursePages];
+  const portfolioPages: MetadataRoute.Sitemap = portfolioSlugs.map((slug) => ({
+    url: `${SITE_URL}/portfolio/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
+  return [...staticPages, ...coursePages, ...portfolioPages];
 }

@@ -3,14 +3,22 @@ import Link from "next/link";
 import { ArrowRight, Clock, BarChart } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { AnimateIn } from "@/components/ui/AnimateIn";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { FaqSection } from "@/components/seo/FaqSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { courses } from "@/lib/data/static";
-import { buildPageMetadata, coursesPageJsonLd, seoKeywords } from "@/lib/seo";
+import {
+  buildPageMetadata,
+  coursesFaq,
+  coursesPageJsonLd,
+  faqJsonLd,
+  seoKeywords,
+} from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "IT Courses in Sargodha — Web, React, MERN & Shopify Training",
+  title: "IT Courses in Sargodha — React, MERN, React Native & Shopify",
   description:
-    "Join SoftPulse for the best IT courses in Sargodha. Learn React.js, React Native, MERN Stack, and Shopify with hands-on projects at our training institute in Al Rehman Trade Center, Sargodha, Pakistan.",
+    "Best IT courses in Sargodha at SoftPulse. Learn React.js, React Native, MERN Stack & Shopify with hands-on projects. IT training institute at Al Rehman Trade Center, Sargodha, Pakistan. Enroll today.",
   path: "/courses",
   keywords: seoKeywords.courses,
 });
@@ -18,7 +26,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default function CoursesPage() {
   return (
     <>
-      <JsonLd data={coursesPageJsonLd()} />
+      <JsonLd data={[coursesPageJsonLd(), faqJsonLd(coursesFaq)]} />
       <section className="pt-32 pb-16 gradient-bg relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDM0djItSDI0di0yaDEyek0zNiAyNHYySDI0di0yaDEyeiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
         <div className="relative max-w-7xl mx-auto px-6 text-center text-white">
@@ -35,11 +43,12 @@ export default function CoursesPage() {
 
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
+          <Breadcrumbs items={[{ name: "IT Courses in Sargodha", path: "/courses" }]} />
           <AnimateIn>
             <SectionHeader
               label="Learn With Us"
-              title="Choose Your Path"
-              description="Whether you're just starting out or leveling up, we have a course designed for you."
+              title="Programming & Web Development Courses in Sargodha"
+              description="Hands-on IT courses for beginners and professionals — taught by working developers at SoftPulse, Sargodha."
             />
           </AnimateIn>
 
@@ -86,21 +95,11 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-blue-50 border-t border-border">
-        <div className="max-w-3xl mx-auto px-6 text-center text-muted leading-relaxed text-sm">
-          <h2 className="text-xl font-bold text-foreground mb-4">
-            Best IT Training Institute for Courses in Sargodha
-          </h2>
-          <p>
-            Searching for IT courses in Sargodha or programming courses near
-            you? SoftPulse offers the most practical tech courses in Sargodha —
-            including React.js, React Native, MERN Stack, and Shopify
-            development. Our coding classes in Sargodha are project-based, taught
-            by working developers, and designed to get you job-ready. Visit us
-            at Al Rehman Trade Center, Sargodha, or apply online today.
-          </p>
-        </div>
-      </section>
+      <FaqSection
+        title="IT Courses in Sargodha — FAQ"
+        items={coursesFaq}
+        className="bg-white border-t border-border"
+      />
     </>
   );
 }

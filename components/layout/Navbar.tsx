@@ -20,7 +20,10 @@ export function Navbar({ settings }: { settings: SiteSettings }) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-border">
-      <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav
+        className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"
+        aria-label="Main navigation"
+      >
         <SiteLogo settings={settings} />
 
         <div className="hidden md:flex items-center gap-8">

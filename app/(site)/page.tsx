@@ -7,6 +7,9 @@ import { Portfolio } from "@/components/home/Portfolio";
 import { Testimonials } from "@/components/home/Testimonials";
 import { CTA } from "@/components/home/CTA";
 import { AnimateIn } from "@/components/ui/AnimateIn";
+import { FaqSection } from "@/components/seo/FaqSection";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { homeFaq, homePageJsonLd, faqJsonLd } from "@/lib/seo";
 import {
   getFiverrPortfolioItems,
   getPortfolioItems,
@@ -24,6 +27,7 @@ export default async function Home() {
 
   return (
     <>
+      <JsonLd data={[homePageJsonLd(), faqJsonLd(homeFaq)]} />
       <AnimateIn immediate>
         <Hero settings={settings} />
       </AnimateIn>
@@ -45,6 +49,12 @@ export default async function Home() {
       <AnimateIn delay={350}>
         <Testimonials items={testimonials} />
       </AnimateIn>
+      <FaqSection
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about SoftPulse — your software house and IT training institute in Sargodha."
+        items={homeFaq}
+        className="bg-blue-50"
+      />
       <AnimateIn delay={400}>
         <CTA settings={settings} />
       </AnimateIn>
