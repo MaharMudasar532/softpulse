@@ -1,0 +1,152 @@
+import Link from "next/link";
+import { Mail, Phone, MapPin, MessageCircle, Globe } from "lucide-react";
+import { SiteLogo } from "@/components/layout/SiteLogo";
+import type { SiteSettings } from "@/lib/types";
+
+const footerLinks = {
+  services: [
+    { label: "Mobile App Development", href: "/services#mobile-app" },
+    { label: "React Native", href: "/services#react-native" },
+    { label: "Shopify Development", href: "/services#shopify" },
+    { label: "Web Development", href: "/services#web" },
+    { label: "UI/UX Design", href: "/services#ui-ux" },
+    { label: "AI Integrations", href: "/services#ai" },
+  ],
+  courses: [
+    { label: "React.js Course", href: "/courses/react" },
+    { label: "React Native Course", href: "/courses/react-native" },
+    { label: "MERN Stack Course", href: "/courses/mern-stack" },
+    { label: "Shopify Course", href: "/courses/shopify" },
+  ],
+  company: [
+    { label: "About Us", href: "/about" },
+    { label: "Portfolio", href: "/#portfolio" },
+    { label: "Testimonials", href: "/#testimonials" },
+    { label: "Contact", href: "/#contact" },
+  ],
+};
+
+export function Footer({ settings }: { settings: SiteSettings }) {
+  return (
+    <footer className="bg-slate-900 text-slate-300">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <div className="mb-6 [&_span]:text-white [&_span_span]:text-blue-400">
+              <SiteLogo settings={settings} variant="light" />
+            </div>
+            <p className="text-sm leading-relaxed mb-6">
+              Software house & IT training institute at Al Rehman Trade Center,
+              Sargodha — building web and mobile products while training the
+              next generation of developers.
+            </p>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-blue-400" />
+                <a
+                  href={`mailto:${settings.contact_email}`}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  {settings.contact_email}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-blue-400" />
+                <a
+                  href={`tel:${settings.contact_phone.replace(/\s/g, "")}`}
+                  className="hover:text-blue-400 transition-colors"
+                >
+                  {settings.contact_phone}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-blue-400" />
+                <span>{settings.contact_address}</span>
+              </div>
+              <a
+                href="https://wa.me/923478787881"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-[#25D366] transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 text-[#25D366]" />
+                <span>WhatsApp: {settings.contact_phone}</span>
+              </a>
+              {settings.website_url && (
+                <a
+                  href={settings.website_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-blue-400 transition-colors"
+                >
+                  <Globe className="w-4 h-4 text-blue-400" />
+                  <span>{settings.website_url.replace(/^https?:\/\//, "")}</span>
+                </a>
+              )}
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-white font-semibold mb-4">Services</h3>
+            <ul className="space-y-2">
+              {footerLinks.services.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm hover:text-blue-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-white font-semibold mb-4">Courses</h3>
+            <ul className="space-y-2">
+              {footerLinks.courses.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm hover:text-blue-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-white font-semibold mb-4">Company</h3>
+            <ul className="space-y-2">
+              {footerLinks.company.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm hover:text-blue-400 transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+          <p>&copy; {new Date().getFullYear()} {settings.site_name}. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="#" className="hover:text-blue-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="hover:text-blue-400 transition-colors">
+              Terms of Service
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
