@@ -11,7 +11,7 @@ import type { SiteSettings } from "@/lib/types";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/courses", label: "Courses" },
+  { href: "/#courses", label: "Courses" },
   { href: "/about", label: "About Us" },
 ];
 
@@ -53,7 +53,7 @@ export function Navbar({ settings }: { settings: SiteSettings }) {
       <div
         className={cn(
           "md:hidden overflow-hidden transition-all duration-300 bg-white border-b border-border",
-          open ? "max-h-64" : "max-h-0"
+          open ? "max-h-80" : "max-h-0"
         )}
       >
         <div className="px-6 py-4 flex flex-col gap-4">

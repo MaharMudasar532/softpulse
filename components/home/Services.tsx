@@ -11,6 +11,15 @@ import Link from "next/link";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { services } from "@/lib/data/static";
 
+const serviceLinks: Record<string, string> = {
+  "mobile-app": "/mobile-app-development",
+  "react-native": "/react-native-development",
+  shopify: "/shopify-app-development",
+  web: "/web-development-services",
+  "ui-ux": "/ui-ux-design",
+  ai: "/services",
+};
+
 const iconMap = {
   smartphone: Smartphone,
   code: Code,
@@ -26,8 +35,8 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           label="What We Do"
-          title="Software Development Services in Sargodha"
-          description="SoftPulse software house delivers web apps, mobile apps, Shopify stores, and UI/UX design for businesses in Sargodha and worldwide."
+          title="Our Services"
+          description="End-to-end digital solutions — mobile apps, web platforms, Shopify, and UI/UX design."
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -41,9 +50,7 @@ export function Services() {
                 <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mb-6 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
                   <Icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">
-                  {service.title} in Sargodha
-                </h3>
+                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                 <p className="text-muted leading-relaxed mb-4">
                   {service.description}
                 </p>
@@ -59,7 +66,7 @@ export function Services() {
                   ))}
                 </ul>
                 <Link
-                  href={`/services#${service.id}`}
+                  href={serviceLinks[service.id] || "/services"}
                   className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:gap-2 transition-all"
                 >
                   Learn more <ArrowRight className="w-4 h-4" />

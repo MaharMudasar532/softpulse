@@ -6,7 +6,7 @@ export const defaultSiteSettings: SiteSettings = {
   hero_badge: "Software House & IT Training Institute",
   hero_title: "We Build Digital Products\n& Train the Next Generation",
   hero_subtitle:
-    "From scalable web platforms to hands-on tech courses — we help startups ship faster and students build real skills in Sargodha, Pakistan.",
+    "From scalable web platforms to hands-on tech courses — we help startups ship faster and students build real-world skills.",
   contact_email: "info@softpulse.org",
   contact_phone: "+92 347 8787881",
   contact_address: "176-FF Al Rehman Trade Center, Sargodha, Pakistan",

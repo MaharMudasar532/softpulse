@@ -23,11 +23,10 @@ export async function generateMetadata({ params }: Props) {
   const item = await getPortfolioItemBySlug(slug);
   if (!item) return { title: "Project Not Found" };
   return buildPageMetadata({
-    title: `${item.title} — Portfolio Project Sargodha`,
-    description: `${item.description} Built by SoftPulse software house in Sargodha, Pakistan.`,
+    title: `${item.title} — Portfolio | SoftPulse`,
+    description: `${item.description} Built by SoftPulse software house.`,
     path: `/portfolio/${slug}`,
-    keywords: [...seoKeywords.services, item.category, `${item.title} Sargodha`],
-    type: "article",
+    keywords: [...seoKeywords.services, item.category],
   });
 }
 
@@ -86,7 +85,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
             <div className="rounded-2xl overflow-hidden border border-border shadow-2xl shadow-primary/10">
               <Image
                 src={item.image_url}
-                alt={`${item.title} — ${item.category} by SoftPulse Sargodha`}
+                alt={`${item.title} — ${item.category} by SoftPulse`}
                 width={1600}
                 height={900}
                 className="w-full h-auto"

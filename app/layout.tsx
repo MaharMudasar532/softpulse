@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { localBusinessJsonLd, homePageJsonLd, rootMetadata, webSiteJsonLd } from "@/lib/seo";
+import { localBusinessJsonLd, rootMetadata, webSiteJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({

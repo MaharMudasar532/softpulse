@@ -8,11 +8,11 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { buildPageMetadata, seoKeywords } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About SoftPulse — Software House & IT Institute in Sargodha",
+  title: "About SoftPulse — Software House & IT Training",
   description:
-    "Meet SoftPulse — Sargodha's software house & IT training institute. 50+ projects, 500+ students trained. Team led by Founder & CEO Mahar Mudassar. Visit us at Al Rehman Trade Center, Sargodha.",
+    "Meet SoftPulse — software house & IT training institute. 50+ projects, 500+ students trained. Team led by Founder & CEO Mahar Mudassar.",
   path: "/about",
-  keywords: [...seoKeywords.courses, ...seoKeywords.services, ...seoKeywords.local],
+  keywords: [...seoKeywords.home, ...seoKeywords.services, ...seoKeywords.training],
 });
 
 export default async function AboutPage() {
@@ -27,11 +27,11 @@ export default async function AboutPage() {
             <Breadcrumbs light items={[{ name: "About Us", path: "/about" }]} />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            About SoftPulse — Sargodha
+            About SoftPulse
           </h1>
           <p className="text-lg text-blue-100 max-w-2xl mx-auto">
-            A software house and IT training institute in Sargodha — building
-            digital products and training the next generation of developers.
+            A software house and IT training institute — building digital
+            products and training the next generation of developers.
           </p>
         </div>
       </section>
@@ -48,11 +48,10 @@ export default async function AboutPage() {
               />
               <div className="space-y-4 text-muted leading-relaxed">
                 <p>
-                  SoftPulse is based at 176-FF Al Rehman Trade Center, Sargodha
-                  — a software house and IT training institute helping startups
-                  ship faster and students build real-world skills. We combine
-                  client projects with hands-on courses in React, Laravel, MERN,
-                  Shopify, and React Native.
+                  SoftPulse is a software house and IT training institute helping
+                  startups ship faster and students build real-world skills. We
+                  combine client projects with hands-on courses in React,
+                  Laravel, MERN, Shopify, and React Native.
                 </p>
                 <p>
                   We&apos;ve delivered 50+ projects across web, mobile, and
@@ -66,7 +65,7 @@ export default async function AboutPage() {
                   trained 500+ students — many now working as developers or
                   building their own products. Whether you need a product built
                   or want to learn how to build one, SoftPulse is your partner
-                  in Sargodha and beyond.
+                  worldwide.
                 </p>
               </div>
             </div>
@@ -212,7 +211,7 @@ export default async function AboutPage() {
             <Button href="/#contact" size="lg">
               Start a Project
             </Button>
-            <Button href="/courses" variant="secondary" size="lg">
+            <Button href="/training" variant="secondary" size="lg">
               Explore Courses
             </Button>
           </div>

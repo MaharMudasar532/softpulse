@@ -3,7 +3,7 @@ import { business } from "@/lib/seo";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${business.name} — Software House & IT Courses Sargodha`,
+    name: `${business.name} — Software House & IT Training`,
     short_name: business.name,
     description: business.description,
     start_url: "/",

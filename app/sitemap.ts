@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { courses } from "@/lib/data/static";
+import { caseStudies, servicePages, trainingPages } from "@/lib/data/pages";
 import { getPortfolioSlugs } from "@/lib/data/queries";
 import { SITE_URL } from "@/lib/seo";
 
@@ -8,45 +8,39 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const portfolioSlugs = await getPortfolioSlugs();
 
   const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: SITE_URL,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${SITE_URL}/courses`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      url: `${SITE_URL}/services`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.95,
-    },
-    {
-      url: `${SITE_URL}/about`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
+    { url: SITE_URL, lastModified: now, changeFrequency: "weekly", priority: 1 },
+    { url: `${SITE_URL}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${SITE_URL}/training`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 
-  const coursePages: MetadataRoute.Sitemap = courses.map((course) => ({
-    url: `${SITE_URL}/courses/${course.slug}`,
+  const serviceUrls = servicePages.map((p) => ({
+    url: `${SITE_URL}/${p.slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));
 
-  const portfolioPages: MetadataRoute.Sitemap = portfolioSlugs.map((slug) => ({
+  const trainingUrls = trainingPages.map((p) => ({
+    url: `${SITE_URL}/${p.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
+  const caseStudyUrls = caseStudies.map((c) => ({
+    url: `${SITE_URL}/case-study-${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  const portfolioUrls = portfolioSlugs.map((slug) => ({
     url: `${SITE_URL}/portfolio/${slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.75,
   }));
 
-  return [...staticPages, ...coursePages, ...portfolioPages];
+  return [...staticPages, ...serviceUrls, ...trainingUrls, ...caseStudyUrls, ...portfolioUrls];
 }

@@ -15,7 +15,7 @@ export function WhyChoose() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           label="Why SoftPulse"
-          title="Why Choose Our Software House in Sargodha"
+          title="Why Choose SoftPulse"
           description="50+ projects delivered, 500+ students trained — technical excellence with a genuine passion for your success."
         />
 
