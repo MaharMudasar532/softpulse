@@ -35,20 +35,37 @@ export function Services() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           label="What We Do"
-          title="Our Services"
-          description="End-to-end digital solutions — mobile apps, web platforms, Shopify, and UI/UX design."
+          title="Mobile App & Web Development Services"
+          description="Professional software development for businesses in Pakistan and worldwide."
         />
+
+        <p className="max-w-3xl mx-auto text-center text-muted leading-relaxed mb-12 -mt-8">
+          We specialize in{" "}
+          <Link href="/react-native-development" className="text-primary hover:underline font-medium">
+            React Native development
+          </Link>
+          ,{" "}
+          <Link href="/mern-stack-development" className="text-primary hover:underline font-medium">
+            MERN stack development
+          </Link>
+          ,{" "}
+          <Link href="/shopify-app-development" className="text-primary hover:underline font-medium">
+            Shopify app development
+          </Link>
+          , and Firebase-powered mobile apps — shipping production software to
+          Google Play, the App Store, and the web.
+        </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => {
             const Icon = iconMap[service.icon as keyof typeof iconMap];
             return (
-              <div
+              <article
                 key={service.id}
                 className="group relative bg-card rounded-2xl p-8 border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
               >
                 <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mb-6 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
-                  <Icon className="w-7 h-7 text-white" />
+                  <Icon className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                 <p className="text-muted leading-relaxed mb-4">
@@ -71,10 +88,19 @@ export function Services() {
                 >
                   Learn more <ArrowRight className="w-4 h-4" />
                 </Link>
-              </div>
+              </article>
             );
           })}
         </div>
+
+        <p className="mt-12 text-center">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+          >
+            View all development services <ArrowRight className="w-5 h-5" />
+          </Link>
+        </p>
       </div>
     </section>
   );

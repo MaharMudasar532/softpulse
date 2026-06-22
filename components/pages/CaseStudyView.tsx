@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { CaseStudySeoBlocks } from "@/components/seo/CaseStudySeoBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { CaseStudy } from "@/lib/data/pages";
 import { caseStudyJsonLd } from "@/lib/seo";
@@ -111,6 +112,8 @@ export function CaseStudyView({ study }: { study: CaseStudy }) {
           </div>
         </div>
       </section>
+
+      <CaseStudySeoBlocks slug={study.slug} />
     </>
   );
 }

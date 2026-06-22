@@ -26,7 +26,7 @@ export function Portfolio({ items }: { items: PortfolioItem[] }) {
                 {item.image_url && (
                   <Image
                     src={item.image_url}
-                    alt={item.title}
+                    alt={`${item.title} — SoftPulse mobile app portfolio project`}
                     fill
                     className="object-cover object-center group-hover:scale-[1.02] transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, 50vw"

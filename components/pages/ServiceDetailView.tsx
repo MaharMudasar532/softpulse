@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { PageSeoBlocks } from "@/components/seo/PageSeoBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { ServicePage } from "@/lib/data/pages";
 import { getServiceByPage } from "@/lib/data/pages";
@@ -119,6 +120,8 @@ export function ServiceDetailView({ page }: { page: ServicePage }) {
           </div>
         </div>
       </section>
+
+      <PageSeoBlocks slug={page.slug} />
     </>
   );
 }

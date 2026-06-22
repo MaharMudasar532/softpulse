@@ -10,8 +10,29 @@ import {
 } from "@/lib/data/pages";
 import { defaultSiteSettings } from "@/lib/data/site-settings";
 
-export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || defaultSiteSettings.website_url;
+export const CANONICAL_BASE = "https://softpulse.org";
+
+function normalizeOrigin(url: string): string {
+  try {
+    const parsed = new URL(url);
+    parsed.protocol = "https:";
+    if (parsed.hostname.startsWith("www.")) {
+      parsed.hostname = parsed.hostname.slice(4);
+    }
+    return parsed.origin;
+  } catch {
+    return CANONICAL_BASE;
+  }
+}
+
+export const SITE_URL = normalizeOrigin(
+  process.env.NEXT_PUBLIC_SITE_URL || defaultSiteSettings.website_url
+);
+
+export function canonicalUrl(path = ""): string {
+  if (!path || path === "/") return CANONICAL_BASE;
+  return `${CANONICAL_BASE}${path.startsWith("/") ? path : `/${path}`}`;
+}
 
 export const business = {
   name: defaultSiteSettings.site_name,
@@ -78,7 +99,7 @@ export function buildPageMetadata({
   keywords = [],
   noIndex = false,
 }: PageSeoOptions): Metadata {
-  const url = `${SITE_URL}${path}`;
+  const url = canonicalUrl(path);
   const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
   return {
@@ -113,14 +134,20 @@ export function buildPageMetadata({
 
 export const rootMetadata: Metadata = {
   ...buildPageMetadata({
-    title: "SoftPulse | Software House & IT Training Institute in Sargodha",
+    title:
+      "SoftPulse | Software House & IT Training Institute in Sargodha | React Native, MERN Stack Courses",
     description:
-      "SoftPulse builds mobile apps, web platforms, and Shopify solutions — and trains developers through hands-on IT courses. Software house & training institute serving clients worldwide.",
+      "SoftPulse is a software house and IT training institute in Sargodha offering React Native, MERN Stack, and modern app development courses with real projects and hands-on mentorship.",
     path: "/",
-    keywords: seoKeywords.home,
+    keywords: [
+      ...seoKeywords.home,
+      ...seoKeywords.services,
+      ...seoKeywords.training,
+    ],
   }),
   title: {
-    default: "SoftPulse | Software House & IT Training Institute in Sargodha",
+    default:
+      "SoftPulse | Software House & IT Training Institute in Sargodha | React Native, MERN Stack Courses",
     template: "%s | SoftPulse",
   },
 };
@@ -199,6 +226,74 @@ export function webSiteJsonLd() {
     name: business.name,
     url: business.url,
     publisher: { "@id": `${SITE_URL}/#organization` },
+  };
+}
+
+export function homePageJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE_URL}/#webpage`,
+    url: SITE_URL,
+    name: "SoftPulse | Software House & IT Training Institute in Sargodha",
+    description:
+      "Software house and IT training institute offering mobile app development services and React Native, MERN Stack, and web development courses.",
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/#organization` },
+    inLanguage: "en-PK",
+  };
+}
+
+export function homeCoursesSchemaJsonLd() {
+  return trainingPages.map((page) => ({
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: page.metaTitle,
+    description: page.metaDescription,
+    url: canonicalUrl(`/${page.slug}`),
+    provider: { "@id": `${CANONICAL_BASE}/#organization` },
+  }));
+}
+
+export function organizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${CANONICAL_BASE}/#organization`,
+    name: business.name,
+    url: CANONICAL_BASE,
+    logo: business.logo,
+    email: business.email,
+    telephone: business.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: business.streetAddress,
+      addressLocality: business.city,
+      addressRegion: business.region,
+      addressCountry: business.country,
+    },
+    sameAs: [
+      socialProfiles.website,
+      socialProfiles.whatsapp,
+      socialProfiles.fiverr,
+      socialProfiles.upwork,
+      socialProfiles.googleMaps,
+    ],
+  };
+}
+
+export function faqJsonLd(faqs: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
   };
 }
 

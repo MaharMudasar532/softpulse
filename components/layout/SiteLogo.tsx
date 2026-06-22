@@ -19,7 +19,7 @@ export function SiteLogo({ settings, variant = "dark" }: SiteLogoProps) {
       {settings.logo_url ? (
         <Image
           src={settings.logo_url}
-          alt={name}
+          alt={`${name} — Software House & IT Training Institute`}
           width={36}
           height={36}
           className="w-9 h-9 rounded-xl object-cover shadow-lg shadow-primary/30"

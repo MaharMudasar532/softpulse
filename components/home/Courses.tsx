@@ -28,9 +28,29 @@ export function Courses() {
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
           label="Learn With Us"
-          title="Our Courses"
-          description="Hands-on programming courses with live mentorship — from beginner to job-ready."
+          title="IT Training & Programming Courses"
+          description="Project-based courses with live mentorship — from beginner to job-ready developer."
         />
+
+        <p className="max-w-3xl mx-auto text-center text-muted leading-relaxed mb-12 -mt-8">
+          Enroll in our{" "}
+          <Link href="/react-native-course-sargodha" className="text-primary hover:underline font-medium">
+            React Native course
+          </Link>
+          ,{" "}
+          <Link href="/mern-stack-course-sargodha" className="text-primary hover:underline font-medium">
+            MERN stack course
+          </Link>
+          ,{" "}
+          <Link href="/react-js-course-sargodha" className="text-primary hover:underline font-medium">
+            React JS course
+          </Link>
+          , or{" "}
+          <Link href="/web-development-course-sargodha" className="text-primary hover:underline font-medium">
+            web development course
+          </Link>{" "}
+          — all with real projects, portfolio builds, and certificate on completion.
+        </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {trainingPages.map((page) => {
@@ -38,15 +58,15 @@ export function Courses() {
             const Icon = courseIcons[page.slug] || BookOpen;
 
             return (
-              <div
+              <article
                 key={page.slug}
                 className="group relative bg-white rounded-2xl p-8 border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
               >
                 <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mb-6 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
-                  <Icon className="w-7 h-7 text-white" />
+                  <Icon className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
-                  {page.headline}
+                  <Link href={`/${page.slug}`}>{page.headline}</Link>
                 </h3>
                 <p className="text-muted leading-relaxed mb-4 text-sm">
                   {page.subheadline}
@@ -55,11 +75,11 @@ export function Courses() {
                 {course && (
                   <div className="flex items-center gap-4 text-sm text-muted mb-4">
                     <span className="flex items-center gap-1.5">
-                      <Clock className="w-4 h-4 text-primary" />
+                      <Clock className="w-4 h-4 text-primary" aria-hidden="true" />
                       {course.duration}
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <BarChart className="w-4 h-4 text-primary" />
+                      <BarChart className="w-4 h-4 text-primary" aria-hidden="true" />
                       {course.level}
                     </span>
                   </div>
@@ -85,7 +105,7 @@ export function Courses() {
                 >
                   View course <ArrowRight className="w-4 h-4" />
                 </Link>
-              </div>
+              </article>
             );
           })}
         </div>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Clock, BarChart, CheckCircle, ArrowLeft, Wrench, BookOpen } from "lucide-react";
 import { CourseApplyForm } from "@/components/courses/CourseApplyForm";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { PageSeoBlocks } from "@/components/seo/PageSeoBlocks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import type { TrainingPage } from "@/lib/data/pages";
 import { getCourseForTraining } from "@/lib/data/pages";
@@ -145,6 +146,8 @@ export function TrainingDetailView({ page }: { page: TrainingPage }) {
           </div>
         </div>
       </section>
+
+      <PageSeoBlocks slug={page.slug} />
     </>
   );
 }
