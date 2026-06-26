@@ -285,6 +285,66 @@ export const trainingPages: TrainingPage[] = [
     keywords: ["mobile app development course Sargodha", "app development training", "iOS Android course"],
     applyTitle: "Mobile App Development Course",
   },
+  {
+    slug: "shopify-course-sargodha",
+    courseSlug: "shopify",
+    headline: "Shopify Development & Selling Course",
+    subheadline:
+      "Build and launch Shopify stores — theme customization, product setup, dropshipping, and client projects in 2 months.",
+    metaTitle: "Shopify Course Sargodha | SoftPulse Training",
+    metaDescription:
+      "Shopify course in Sargodha — learn store setup, Liquid themes, product research, and e-commerce optimization. Build real stores at SoftPulse IT institute.",
+    keywords: ["Shopify Course Sargodha", "Shopify training Pakistan", "e-commerce course"],
+    applyTitle: "Shopify Development Course",
+  },
+  {
+    slug: "graphic-design-course-sargodha",
+    courseSlug: "graphic-design",
+    headline: "Graphic Design Course",
+    subheadline:
+      "Adobe Photoshop, Illustrator, Canva — logos, branding, and social media design in 3 months.",
+    metaTitle: "Graphic Design Course Sargodha | SoftPulse Training",
+    metaDescription:
+      "Graphic design course in Sargodha — learn Photoshop, Illustrator, logo design, and freelance branding skills with portfolio projects at SoftPulse.",
+    keywords: ["Graphic Design Course Sargodha", "Photoshop course", "logo design training"],
+    applyTitle: "Graphic Design Course",
+  },
+  {
+    slug: "digital-marketing-course-sargodha",
+    courseSlug: "digital-marketing",
+    headline: "Digital Marketing Course",
+    subheadline:
+      "SEO, Google Ads, Facebook Ads, content marketing, and analytics — grow businesses online.",
+    metaTitle: "Digital Marketing Course Sargodha | SoftPulse",
+    metaDescription:
+      "Digital marketing course in Sargodha — master SEO, paid ads, social media marketing, and analytics with real campaign projects at SoftPulse.",
+    keywords: ["Digital Marketing Course Sargodha", "SEO course", "Facebook Ads training"],
+    applyTitle: "Digital Marketing Course",
+  },
+  {
+    slug: "youtube-automation-course-sargodha",
+    courseSlug: "youtube-automation",
+    headline: "YouTube Automation Course",
+    subheadline:
+      "Channel systems, niche research, scripts, editing, YouTube SEO, and monetization in 3 months.",
+    metaTitle: "YouTube Automation Course Sargodha | SoftPulse",
+    metaDescription:
+      "YouTube automation course in Sargodha — learn channel setup, content systems, video editing, SEO, and monetization at SoftPulse IT training institute.",
+    keywords: ["YouTube Automation Course Sargodha", "YouTube course Pakistan", "content creation training"],
+    applyTitle: "YouTube Automation Course",
+  },
+  {
+    slug: "flutter-course-sargodha",
+    courseSlug: "flutter",
+    headline: "Flutter Mobile Development Course",
+    subheadline:
+      "Learn Dart and Flutter — build cross-platform iOS and Android apps with Firebase and app store publishing.",
+    metaTitle: "Flutter Course Sargodha | SoftPulse Training",
+    metaDescription:
+      "Flutter course in Sargodha — learn Dart, Flutter widgets, state management, and mobile app publishing. Cross-platform development at SoftPulse.",
+    keywords: ["Flutter Course Sargodha", "Flutter training Pakistan", "Dart mobile development"],
+    applyTitle: "Flutter Mobile Development Course",
+  },
 ];
 
 export const caseStudies: CaseStudy[] = [

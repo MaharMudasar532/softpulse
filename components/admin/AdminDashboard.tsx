@@ -14,6 +14,7 @@ import {
   Zap,
   ShoppingBag,
   GraduationCap,
+  BarChart3,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { SiteSettingsManager } from "@/components/admin/SiteSettingsManager";
@@ -22,10 +23,12 @@ import { FiverrPortfolioManager } from "@/components/admin/FiverrPortfolioManage
 import { CourseApplicationsManager } from "@/components/admin/CourseApplicationsManager";
 import { TestimonialsManager } from "@/components/admin/TestimonialsManager";
 import { ContactMessagesManager } from "@/components/admin/ContactMessagesManager";
+import { AnalyticsManager } from "@/components/admin/AnalyticsManager";
 import { cn } from "@/lib/utils";
 
 const tabs = [
   { id: "overview", label: "Overview", icon: LayoutDashboard },
+  { id: "analytics", label: "Visitor Analytics", icon: BarChart3 },
   { id: "settings", label: "Site Settings", icon: Settings },
   { id: "portfolio", label: "Portfolio", icon: Briefcase },
   { id: "fiverr", label: "Fiverr Gigs", icon: ShoppingBag },
@@ -110,8 +113,13 @@ export function AdminDashboard({ userEmail }: { userEmail: string }) {
 
         <div className="p-8">
           {activeTab === "overview" && (
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {tabs.slice(1).map((tab) => (
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-lg font-bold mb-4">Visitor snapshot</h2>
+                <AnalyticsManager compact />
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {tabs.slice(2).map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
@@ -121,6 +129,7 @@ export function AdminDashboard({ userEmail }: { userEmail: string }) {
                   <h3 className="font-semibold mb-1">{tab.label}</h3>
                   <p className="text-sm text-muted">
                     {tab.id === "settings" && "Logo, hero text, contact info"}
+                    {tab.id === "analytics" && "Visitors, pages, time on site"}
                     {tab.id === "portfolio" && "Manage portfolio projects"}
                     {tab.id === "fiverr" && "Fiverr gigs & services"}
                     {tab.id === "applications" && "Course enrollment requests"}
@@ -129,8 +138,10 @@ export function AdminDashboard({ userEmail }: { userEmail: string }) {
                   </p>
                 </button>
               ))}
+              </div>
             </div>
           )}
+          {activeTab === "analytics" && <AnalyticsManager />}
           {activeTab === "settings" && <SiteSettingsManager />}
           {activeTab === "portfolio" && <PortfolioManager />}
           {activeTab === "fiverr" && <FiverrPortfolioManager />}

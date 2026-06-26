@@ -7,7 +7,13 @@ import {
   ArrowRight,
   Clock,
   BarChart,
+  Palette,
+  Megaphone,
+  Video,
+  ShoppingBag,
+  Layers,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { trainingPages } from "@/lib/data/pages";
@@ -20,6 +26,23 @@ const courseIcons: Record<string, typeof Code> = {
   "nodejs-course-sargodha": Server,
   "web-development-course-sargodha": Globe,
   "mobile-app-development-course-sargodha": Smartphone,
+  "shopify-course-sargodha": ShoppingBag,
+  "graphic-design-course-sargodha": Palette,
+  "digital-marketing-course-sargodha": Megaphone,
+  "youtube-automation-course-sargodha": Video,
+  "flutter-course-sargodha": Layers,
+};
+
+const courseImages: Record<string, string> = {
+  "react-native-course-sargodha": "/blog/react-native-course-guide-hero.png",
+  "web-development-course-sargodha": "/blog/web-development-course-hero.png",
+  "shopify-course-sargodha": "/blog/shopify-course-hero.png",
+  "graphic-design-course-sargodha": "/blog/graphic-design-course-hero.png",
+  "digital-marketing-course-sargodha": "/blog/digital-marketing-course-hero.png",
+  "youtube-automation-course-sargodha": "/blog/youtube-automation-course-hero.png",
+  "flutter-course-sargodha": "/blog/react-native-vs-flutter-hero.png",
+  "mern-stack-course-sargodha": "/blog/web-development-course-hero.png",
+  "mobile-app-development-course-sargodha": "/blog/react-native-course-guide-hero.png",
 };
 
 export function Courses() {
@@ -35,21 +58,25 @@ export function Courses() {
         <p className="max-w-3xl mx-auto text-center text-muted leading-relaxed mb-12 -mt-8">
           Enroll in our{" "}
           <Link href="/react-native-course-sargodha" className="text-primary hover:underline font-medium">
-            React Native course
+            React Native
           </Link>
           ,{" "}
-          <Link href="/mern-stack-course-sargodha" className="text-primary hover:underline font-medium">
-            MERN stack course
-          </Link>
-          ,{" "}
-          <Link href="/react-js-course-sargodha" className="text-primary hover:underline font-medium">
-            React JS course
-          </Link>
-          , or{" "}
           <Link href="/web-development-course-sargodha" className="text-primary hover:underline font-medium">
-            web development course
-          </Link>{" "}
-          — all with real projects, portfolio builds, and certificate on completion.
+            web development
+          </Link>
+          ,{" "}
+          <Link href="/graphic-design-course-sargodha" className="text-primary hover:underline font-medium">
+            graphic design
+          </Link>
+          ,{" "}
+          <Link href="/digital-marketing-course-sargodha" className="text-primary hover:underline font-medium">
+            digital marketing
+          </Link>
+          ,{" "}
+          <Link href="/flutter-course-sargodha" className="text-primary hover:underline font-medium">
+            Flutter
+          </Link>
+          , and more — all with real projects and certificate on completion.
         </p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -60,11 +87,31 @@ export function Courses() {
             return (
               <article
                 key={page.slug}
-                className="group relative bg-white rounded-2xl p-8 border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+                className="group relative bg-white rounded-2xl border border-border overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
               >
+                {courseImages[page.slug] && (
+                  <Link href={`/${page.slug}`} className="block relative aspect-[16/10] overflow-hidden bg-slate-900">
+                    <Image
+                      src={courseImages[page.slug]}
+                      alt={`${page.headline} at Soft Pulse Sargodha`}
+                      fill
+                      className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      loading="lazy"
+                    />
+                  </Link>
+                )}
+                <div className="p-8">
+                {!courseImages[page.slug] && (
                 <div className="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center mb-6 shadow-lg shadow-primary/20 group-hover:scale-110 transition-transform">
                   <Icon className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
+                )}
+                {courseImages[page.slug] && (
+                <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4 shadow-md">
+                  <Icon className="w-6 h-6 text-white" aria-hidden="true" />
+                </div>
+                )}
                 <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                   <Link href={`/${page.slug}`}>{page.headline}</Link>
                 </h3>
@@ -105,6 +152,7 @@ export function Courses() {
                 >
                   View course <ArrowRight className="w-4 h-4" />
                 </Link>
+                </div>
               </article>
             );
           })}

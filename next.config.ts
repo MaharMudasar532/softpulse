@@ -16,6 +16,11 @@ const trainingSlugs = [
   "nodejs-course-sargodha",
   "web-development-course-sargodha",
   "mobile-app-development-course-sargodha",
+  "shopify-course-sargodha",
+  "graphic-design-course-sargodha",
+  "digital-marketing-course-sargodha",
+  "youtube-automation-course-sargodha",
+  "flutter-course-sargodha",
 ];
 
 const servicePathRedirects = serviceSlugs.map((slug) => ({

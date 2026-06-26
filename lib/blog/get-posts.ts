@@ -27,9 +27,9 @@ export function extractHeadings(content: string): BlogHeading[] {
   const lines = content.split("\n");
 
   for (const line of lines) {
-    const match = line.match(/^(#{2,3})\s+(.+)$/);
+    const match = line.match(/^(#{2,4})\s+(.+)$/);
     if (!match) continue;
-    const level = match[1].length as 2 | 3;
+    const level = match[1].length as 2 | 3 | 4;
     const text = match[2].replace(/[#*_`[\]]/g, "").trim();
     headings.push({ id: slugify(text), text, level });
   }

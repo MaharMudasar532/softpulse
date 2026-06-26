@@ -398,6 +398,244 @@ export const courses: Course[] = [
       },
     ],
   },
+  {
+    slug: "graphic-design",
+    title: "Graphic Design Course",
+    description:
+      "Master Adobe Photoshop, Illustrator, and Canva — build logos, social media designs, and brand identities in 3 months.",
+    long_description:
+      "This course is for creative students who want professional design skills for freelancing and agency work. You will learn visual communication, branding fundamentals, and the industry tools designers use every day — with a portfolio of real client-style projects by graduation.",
+    duration: "3 months",
+    level: "Beginner to Intermediate",
+    highlights: [
+      "Adobe Photoshop & Illustrator",
+      "Logo & brand identity projects",
+      "Social media design packs",
+      "Canva for fast client delivery",
+      "Freelance portfolio build",
+    ],
+    prerequisites: ["Basic computer skills", "Creative interest — no design experience required"],
+    tools: ["Adobe Photoshop", "Adobe Illustrator", "Canva", "Figma basics"],
+    outline: [
+      {
+        period: "Month 1",
+        title: "Design Foundations & Photoshop",
+        topics: [
+          "Design principles — colour, typography, layout",
+          "Adobe Photoshop workspace & tools",
+          "Photo editing, banners & digital ads",
+          "Social media post design",
+          "Project: Brand social media kit",
+        ],
+      },
+      {
+        period: "Month 2",
+        title: "Illustrator & Logo Design",
+        topics: [
+          "Vector graphics with Adobe Illustrator",
+          "Logo design process from brief to delivery",
+          "Icons, badges & brand assets",
+          "Print vs digital file formats",
+          "Project: Complete logo & brand identity",
+        ],
+      },
+      {
+        period: "Month 3",
+        title: "Canva, Portfolio & Freelancing",
+        topics: [
+          "Canva templates & fast client workflows",
+          "Instagram, Facebook & TikTok design trends",
+          "Portfolio presentation on Behance",
+          "Pricing freelance design work",
+          "Final Project: Client brand package",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "digital-marketing",
+    title: "Digital Marketing Course",
+    description:
+      "Learn SEO, Google Ads, Facebook Ads, content marketing, and analytics — grow businesses online in 3 months.",
+    long_description:
+      "Digital marketing skills are in demand at every business in Pakistan. This course teaches practical growth skills — from ranking on Google to running profitable ad campaigns — with real campaign projects and reporting dashboards.",
+    duration: "3 months",
+    level: "Beginner to Intermediate",
+    highlights: [
+      "SEO & content strategy",
+      "Google Ads & Meta Ads",
+      "Analytics & reporting",
+      "Email marketing campaigns",
+      "Client campaign projects",
+    ],
+    prerequisites: ["Basic computer & internet skills", "Good written English helpful"],
+    tools: ["Google Analytics", "Google Ads", "Meta Business Suite", "Canva", "Mailchimp"],
+    outline: [
+      {
+        period: "Month 1",
+        title: "SEO & Content Marketing",
+        topics: [
+          "How search engines work",
+          "Keyword research & on-page SEO",
+          "Blog writing for rankings",
+          "Content calendars & brand voice",
+          "Project: SEO audit & content plan",
+        ],
+      },
+      {
+        period: "Month 2",
+        title: "Paid Ads — Google & Meta",
+        topics: [
+          "Google Search & Display campaigns",
+          "Facebook & Instagram ad manager",
+          "Audience targeting & retargeting",
+          "Ad creatives & A/B testing",
+          "Project: Live ad campaign with budget",
+        ],
+      },
+      {
+        period: "Month 3",
+        title: "Email, Analytics & Client Work",
+        topics: [
+          "Email marketing automation",
+          "Google Analytics dashboards",
+          "Conversion tracking & ROI reporting",
+          "Client proposals & retainers",
+          "Final Project: Full marketing plan for a local business",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "youtube-automation",
+    title: "YouTube Automation Course",
+    description:
+      "Build YouTube channel systems — niche research, scripts, editing, SEO, and monetization in 3 months.",
+    long_description:
+      "YouTube remains one of the largest discovery platforms globally. This course teaches sustainable channel systems — not get-rich-quick schemes — including niche research, content planning, AI-assisted workflows, editing, and monetization paths.",
+    duration: "3 months",
+    level: "Beginner",
+    highlights: [
+      "Niche & audience research",
+      "Script writing & hooks",
+      "Video editing fundamentals",
+      "YouTube SEO & thumbnails",
+      "Monetization strategies",
+    ],
+    prerequisites: ["Basic computer skills", "Consistent weekly time commitment"],
+    tools: ["YouTube Studio", "CapCut / Premiere basics", "Canva", "AI writing tools"],
+    outline: [
+      {
+        period: "Month 1",
+        title: "Channel Strategy & Setup",
+        topics: [
+          "Niche research & competitor analysis",
+          "Channel branding & content pillars",
+          "Script structure — hooks & retention",
+          "YouTube Studio fundamentals",
+          "Project: Launch a branded channel",
+        ],
+      },
+      {
+        period: "Month 2",
+        title: "Production & Editing",
+        topics: [
+          "Voiceover & recording basics",
+          "Video editing workflow",
+          "Thumbnails that get clicks",
+          "AI tools for research & scripting",
+          "Project: Publish 4 optimized videos",
+        ],
+      },
+      {
+        period: "Month 3",
+        title: "SEO, Growth & Monetization",
+        topics: [
+          "YouTube SEO — titles, tags, descriptions",
+          "Analytics & audience retention",
+          "Affiliate & sponsorship models",
+          "AdSense requirements & alternatives",
+          "Final Project: 30-day growth sprint",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "flutter",
+    title: "Flutter Mobile Development",
+    description:
+      "Learn Dart and Flutter — build beautiful cross-platform iOS and Android apps in a 5-month program.",
+    long_description:
+      "Flutter is Google's UI toolkit for building natively compiled applications from a single codebase. This course covers Dart fundamentals, Flutter widgets, state management, API integration, and publishing to app stores — for students who want an alternative to the React Native track.",
+    duration: "5 months",
+    level: "Beginner to Advanced",
+    highlights: [
+      "Dart programming language",
+      "Flutter widgets & layouts",
+      "Firebase integration",
+      "State management patterns",
+      "App Store publishing",
+    ],
+    prerequisites: ["Basic computer skills", "Logical thinking", "No prior coding required"],
+    tools: ["Dart", "Flutter", "Android Studio", "VS Code", "Firebase"],
+    outline: [
+      {
+        period: "Month 1",
+        title: "Programming & Dart Fundamentals",
+        topics: [
+          "Programming basics — variables, functions, OOP",
+          "Dart syntax & data structures",
+          "Async programming in Dart",
+          "Debugging & problem solving",
+          "Project: Dart CLI utilities",
+        ],
+      },
+      {
+        period: "Month 2",
+        title: "Flutter UI & Widgets",
+        topics: [
+          "Flutter project structure",
+          "Stateless & stateful widgets",
+          "Layouts — Row, Column, Stack, Flex",
+          "Material & Cupertino design",
+          "Project: Multi-screen Flutter app",
+        ],
+      },
+      {
+        period: "Month 3",
+        title: "Navigation & State Management",
+        topics: [
+          "Navigator & routing",
+          "Provider / Riverpod state management",
+          "Forms & validation",
+          "Theming & responsive design",
+          "Project: E-commerce UI prototype",
+        ],
+      },
+      {
+        period: "Month 4",
+        title: "APIs, Firebase & Device Features",
+        topics: [
+          "REST API integration with http/dio",
+          "Firebase Auth & Firestore",
+          "Local storage & offline support",
+          "Push notifications",
+          "Project: Full-stack Flutter app",
+        ],
+      },
+      {
+        period: "Month 5",
+        title: "Publishing & Production",
+        topics: [
+          "Performance optimization",
+          "App icons & splash screens",
+          "Building release APK & IPA",
+          "Google Play & App Store submission",
+          "Final Project: Published Flutter app",
+        ],
+      },
+    ],
+  },
 ];
 
 export const teamMembers: TeamMember[] = [

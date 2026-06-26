@@ -34,7 +34,7 @@ export type BlogFrontmatter = {
 export type BlogHeading = {
   id: string;
   text: string;
-  level: 2 | 3;
+  level: 2 | 3 | 4;
 };
 
 export type BlogPost = BlogFrontmatter & {

@@ -15,6 +15,11 @@ const markdownComponents: Components = {
       {children}
     </h3>
   ),
+  h4: ({ children, id }) => (
+    <h4 id={id} className="blog-heading-xs">
+      {children}
+    </h4>
+  ),
   p: ({ children }) => <p className="blog-paragraph">{children}</p>,
   ul: ({ children }) => <ul className="blog-list">{children}</ul>,
   ol: ({ children }) => <ol className="blog-list-ordered">{children}</ol>,

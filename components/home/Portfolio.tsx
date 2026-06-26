@@ -22,7 +22,7 @@ export function Portfolio({ items }: { items: PortfolioItem[] }) {
               href={item.slug ? `/portfolio/${item.slug}` : "#"}
               className="group rounded-2xl overflow-hidden border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 bg-white"
             >
-              <div className="h-64 relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+              <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
                 {item.image_url && (
                   <Image
                     src={item.image_url}
@@ -32,8 +32,8 @@ export function Portfolio({ items }: { items: PortfolioItem[] }) {
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-4 left-4 right-4 md:hidden">
                   <span className="inline-block px-2.5 py-1 rounded-full bg-primary/90 text-white text-xs font-semibold mb-2">
                     {item.category}
                   </span>

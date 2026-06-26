@@ -514,6 +514,176 @@ const pageSeoContent: Record<string, PageSeoContent> = {
       { href: "/", label: "Homepage" }
     ),
   },
+  "shopify-course-sargodha": {
+    intro: [
+      "The Shopify course at SoftPulse in Sargodha teaches students to launch, customize, and grow e-commerce stores on the world's leading platform. You learn store setup, product catalogs, theme customization, checkout optimization, and dropshipping fundamentals with mentor-led projects.",
+      "Unlike passive video tutorials, this training includes live feedback on your store structure, SEO basics for product pages, and realistic discussion of margins and fulfillment — skills you can sell to local businesses or international freelance clients.",
+      "Graduates leave with a polished demo store, reusable setup checklists, and confidence navigating Shopify admin for client work or their own brand.",
+    ],
+    sections: [
+      {
+        title: "Practical E-Commerce Skills",
+        paragraphs: [
+          "Topics include Shopify admin, theme editing, payment and shipping configuration, product variants, collections, apps, and conversion-focused product pages. Students build complete stores rather than watching demos.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "How long is the Shopify course?",
+        answer:
+          "The program runs three months with structured modules, assignments, and mentor reviews on your store projects.",
+      },
+      {
+        question: "Do I need coding experience?",
+        answer:
+          "No prior coding is required. Basic HTML/CSS helps for theme customization but is taught as needed during the course.",
+      },
+    ],
+    relatedLinks: links(
+      { href: "/shopify-app-development", label: "Shopify App Development" },
+      { href: "/digital-marketing-course-sargodha", label: "Digital Marketing Course" },
+      { href: "/web-development-course-sargodha", label: "Web Development Course" },
+      { href: "/training", label: "All Courses" },
+      { href: "/", label: "Homepage" }
+    ),
+  },
+  "graphic-design-course-sargodha": {
+    intro: [
+      "The graphic design course at SoftPulse in Sargodha is a three-month, project-based program covering Photoshop, Illustrator, and Canva with portfolio development and freelancing guidance. Students learn logo design, social media graphics, brand identity, and print-ready layouts.",
+      "Training is mentor-led inside a working software house, so you see how designers collaborate with developers and marketers on real client work — not just isolated tutorials.",
+      "Graduates build a portfolio of brand projects, social media kits, and marketing visuals they can use to land freelance clients on Fiverr, Upwork, or local businesses in Sargodha and Punjab.",
+    ],
+    sections: [
+      {
+        title: "Creative Skills With Commercial Focus",
+        paragraphs: [
+          "Every assignment targets skills clients actually pay for: logos, Instagram carousels, YouTube thumbnails, business cards, and brand guidelines. Mentors critique your work until it meets professional standards.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "How long is the graphic design course?",
+        answer:
+          "The program runs three months with weekly modules, design assignments, and portfolio reviews.",
+      },
+      {
+        question: "Do I need a powerful computer?",
+        answer:
+          "A laptop with 8GB RAM or more is recommended for Photoshop and Illustrator. We guide students on affordable hardware options.",
+      },
+    ],
+    relatedLinks: links(
+      { href: "/digital-marketing-course-sargodha", label: "Digital Marketing Course" },
+      { href: "/web-development-course-sargodha", label: "Web Development Course" },
+      { href: "/training", label: "All Courses" },
+      { href: "/blog/graphic-design-course-in-sargodha", label: "Graphic Design Guide" },
+      { href: "/", label: "Homepage" }
+    ),
+  },
+  "digital-marketing-course-sargodha": {
+    intro: [
+      "The digital marketing course at SoftPulse in Sargodha covers SEO, social media marketing, Google and Meta ads, content strategy, email marketing, and analytics. Students learn to grow traffic and leads for local businesses and online brands.",
+      "This program suits business owners, creative students, and future freelancers who want growth skills with immediate commercial value — not theory-only lectures.",
+      "By graduation, you will have run practice campaigns, optimized real landing pages, and built case studies you can show employers or freelance clients.",
+    ],
+    sections: [
+      {
+        title: "Marketing Skills That Drive Revenue",
+        paragraphs: [
+          "Modules include keyword research, on-page SEO, ad account setup, audience targeting, conversion tracking, and reporting. Students pair marketing with design or Shopify skills for complete client packages.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "How long is the digital marketing course?",
+        answer:
+          "The program runs three months with hands-on campaign work and mentor feedback.",
+      },
+      {
+        question: "Is this course good for freelancing?",
+        answer:
+          "Yes. SEO, ads management, and social media packages are among the most in-demand freelance services for Pakistani talent on international platforms.",
+      },
+    ],
+    relatedLinks: links(
+      { href: "/graphic-design-course-sargodha", label: "Graphic Design Course" },
+      { href: "/shopify-course-sargodha", label: "Shopify Course" },
+      { href: "/youtube-automation-course-sargodha", label: "YouTube Automation Course" },
+      { href: "/training", label: "All Courses" },
+      { href: "/", label: "Homepage" }
+    ),
+  },
+  "youtube-automation-course-sargodha": {
+    intro: [
+      "The YouTube automation course at SoftPulse in Sargodha teaches channel systems, content research, scripting, editing, thumbnails, analytics, and policy-safe monetization — without hype about guaranteed passive income.",
+      "Students learn sustainable workflows for faceless and on-camera formats, batch recording, and audience retention techniques that work for Pakistani creators targeting local and international niches.",
+      "Graduates leave with a content calendar, published videos, and the skills to offer YouTube management as a freelance service or grow their own channel.",
+    ],
+    sections: [
+      {
+        title: "Content Systems, Not Shortcuts",
+        paragraphs: [
+          "Training covers niche research, hook writing, editing with affordable tools, YouTube Studio analytics, and compliant monetization paths. Mentors emphasize iteration and patience over viral lottery thinking.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "How long is the YouTube automation course?",
+        answer:
+          "The program runs three months with weekly publishing goals and mentor review of your content.",
+      },
+      {
+        question: "Do I need expensive equipment?",
+        answer:
+          "No. We start with affordable microphones and free editing tools, then guide reinvestment as channels grow.",
+      },
+    ],
+    relatedLinks: links(
+      { href: "/digital-marketing-course-sargodha", label: "Digital Marketing Course" },
+      { href: "/graphic-design-course-sargodha", label: "Graphic Design Course" },
+      { href: "/training", label: "All Courses" },
+      { href: "/blog/youtube-automation-course-in-sargodha", label: "YouTube Automation Guide" },
+      { href: "/", label: "Homepage" }
+    ),
+  },
+  "flutter-course-sargodha": {
+    intro: [
+      "The Flutter course at SoftPulse in Sargodha is a five-month mobile development program using Google's Dart language and Flutter framework. Students build cross-platform apps with custom UI, state management, Firebase backends, and app store deployment.",
+      "This track suits students who prefer Flutter over React Native, want Google's widget toolkit, or have compared both frameworks and chosen Flutter for their career path.",
+      "Graduates publish portfolio apps to Google Play and learn the architecture patterns startups use for MVPs, e-commerce apps, and service platforms.",
+    ],
+    sections: [
+      {
+        title: "Cross-Platform Mobile Development",
+        paragraphs: [
+          "Topics include Dart fundamentals, Flutter layouts, Material Design, Provider/Riverpod state management, REST APIs, Firebase authentication, and store submission workflows for Android and iOS.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Should I choose Flutter or React Native?",
+        answer:
+          "Both are excellent. Read our React Native vs Flutter comparison on the blog, then visit us for a free consultation based on your background and goals.",
+      },
+      {
+        question: "How long is the Flutter course?",
+        answer:
+          "The program runs five months with structured modules from Dart basics through published capstone apps.",
+      },
+    ],
+    relatedLinks: links(
+      { href: "/react-native-course-sargodha", label: "React Native Course" },
+      { href: "/mobile-app-development-course-sargodha", label: "Mobile App Development Course" },
+      { href: "/blog/react-native-vs-flutter-which-to-learn-2026", label: "React Native vs Flutter" },
+      { href: "/training", label: "All Courses" },
+      { href: "/", label: "Homepage" }
+    ),
+  },
   "case-study-karzame": {
     intro: [
       "Karzame needed a secure, bilingual fintech mobile platform with real-time transactions and trustworthy UX for first-time financial app users. SoftPulse delivered a React Native application with token-based authentication, optimized API layers, and cross-platform support for iOS and Android.",
