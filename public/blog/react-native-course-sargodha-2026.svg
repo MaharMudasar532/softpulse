@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="React Native Course in Sargodha">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af"/>
+      <stop offset="50%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="150" cy="120" r="80" fill="white" opacity="0.06"/>
+  <circle cx="1050" cy="500" r="120" fill="white" opacity="0.05"/>
+  <text x="80" y="280" fill="white" font-family="system-ui,sans-serif" font-size="28" font-weight="600" opacity="0.9">Soft Pulse Blog</text>
+  <text x="80" y="340" fill="white" font-family="system-ui,sans-serif" font-size="48" font-weight="700">React Native Course</text>
+  <text x="80" y="400" fill="white" font-family="system-ui,sans-serif" font-size="48" font-weight="700">in Sargodha  2026 Guide</text>
+  <text x="80" y="470" fill="#bfdbfe" font-family="system-ui,sans-serif" font-size="24">Mobile app development training</text>
+  <rect x="80" y="520" width="200" height="4" fill="#60a5fa" rx="2"/>
+</svg>

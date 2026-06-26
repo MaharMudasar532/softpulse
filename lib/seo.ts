@@ -411,3 +411,112 @@ export function getCaseStudyMetadata(study: CaseStudy): Metadata {
     keywords: study.keywords,
   });
 }
+
+export function getBlogHubMetadata(): Metadata {
+  return buildPageMetadata({
+    title: "Blog | SoftPulse — Software Development & IT Training Insights",
+    description:
+      "Expert articles on React Native, MERN stack, web development, Shopify, AI, and tech careers from SoftPulse software house and IT training institute in Sargodha.",
+    path: "/blog",
+    keywords: [
+      ...seoKeywords.home,
+      "SoftPulse blog",
+      "React Native tutorials",
+      "web development blog Pakistan",
+      "IT training articles",
+    ],
+  });
+}
+
+export function getBlogPostMetadata(post: {
+  title: string;
+  description: string;
+  slug: string;
+  keywords: string[];
+  featuredImage: string;
+  author: string;
+  publishDate: string;
+  updatedDate?: string;
+}): Metadata {
+  const path = `/blog/${post.slug}`;
+  const imageUrl = post.featuredImage.startsWith("http")
+    ? post.featuredImage
+    : `${CANONICAL_BASE}${post.featuredImage}`;
+
+  const meta = buildPageMetadata({
+    title: `${post.title} | SoftPulse Blog`,
+    description: post.description,
+    path,
+    keywords: post.keywords,
+  });
+
+  return {
+    ...meta,
+    openGraph: {
+      ...meta.openGraph,
+      type: "article",
+      publishedTime: post.publishDate,
+      modifiedTime: post.updatedDate || post.publishDate,
+      authors: [post.author],
+      images: [{ url: imageUrl, width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      ...meta.twitter,
+      card: "summary_large_image",
+      images: [imageUrl],
+    },
+  };
+}
+
+export function blogPostJsonLd(post: {
+  title: string;
+  description: string;
+  slug: string;
+  author: string;
+  publishDate: string;
+  updatedDate?: string;
+  featuredImage: string;
+  category: string;
+  tags: string[];
+}) {
+  const image = post.featuredImage.startsWith("http")
+    ? post.featuredImage
+    : `${CANONICAL_BASE}${post.featuredImage}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    url: canonicalUrl(`/blog/${post.slug}`),
+    image,
+    datePublished: post.publishDate,
+    dateModified: post.updatedDate || post.publishDate,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    publisher: { "@id": `${CANONICAL_BASE}/#organization` },
+    articleSection: post.category,
+    keywords: post.tags.join(", "),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl(`/blog/${post.slug}`),
+    },
+  };
+}
+
+export function blogHubJsonLd(posts: { title: string; slug: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: "SoftPulse Blog",
+    url: canonicalUrl("/blog"),
+    publisher: { "@id": `${CANONICAL_BASE}/#organization` },
+    blogPost: posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      url: canonicalUrl(`/blog/${p.slug}`),
+    })),
+  };
+}

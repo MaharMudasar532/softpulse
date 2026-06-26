@@ -14,6 +14,7 @@ import type { SiteSettings } from "@/lib/types";
 
 const companyLinks = [
   { label: "About Us", href: "/about" },
+  { label: "Blog", href: "/blog" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Testimonials", href: "/#testimonials" },
   { label: "Contact", href: "/#contact" },

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { caseStudies, servicePages, trainingPages } from "@/lib/data/pages";
+import { getAllPostMetas } from "@/lib/blog/get-posts";
 import { getPortfolioSlugs } from "@/lib/data/queries";
 import { SITE_URL } from "@/lib/seo";
 
@@ -11,6 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: SITE_URL, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${SITE_URL}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
     { url: `${SITE_URL}/training`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 
@@ -42,5 +44,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.75,
   }));
 
-  return [...staticPages, ...serviceUrls, ...trainingUrls, ...caseStudyUrls, ...portfolioUrls];
+  const blogPosts = getAllPostMetas();
+  const blogUrls = blogPosts.map((p) => ({
+    url: `${SITE_URL}/blog/${p.slug}`,
+    lastModified: new Date(p.updatedDate || p.publishDate),
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  return [
+    ...staticPages,
+    ...serviceUrls,
+    ...trainingUrls,
+    ...caseStudyUrls,
+    ...blogUrls,
+    ...portfolioUrls,
+  ];
 }
