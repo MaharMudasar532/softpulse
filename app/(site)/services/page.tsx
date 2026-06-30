@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { SectionHeader } from "@/components/ui/SectionHeader";
+import { Services } from "@/components/home/Services";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { servicePages } from "@/lib/data/pages";
-import { services } from "@/lib/data/static";
 import { buildPageMetadata, seoKeywords, servicesHubJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -14,15 +11,6 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/services",
   keywords: seoKeywords.services,
 });
-
-const iconEmoji: Record<string, string> = {
-  smartphone: "📱",
-  code: "⚡",
-  "shopping-bag": "🛒",
-  globe: "🌐",
-  palette: "🎨",
-  brain: "🤖",
-};
 
 export default function ServicesPage() {
   return (
@@ -39,40 +27,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <SectionHeader
-            label="What We Build"
-            title="Development Services"
-            description="From concept to production — we ship software that scales."
-          />
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicePages.map((page) => {
-              const service = services.find((s) => s.id === page.serviceId);
-              return (
-                <Link
-                  key={page.slug}
-                  href={`/${page.slug}`}
-                  className="group bg-white rounded-2xl p-8 border border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all"
-                >
-                  <span className="text-3xl mb-4 block">
-                    {service ? iconEmoji[service.icon] : "⚡"}
-                  </span>
-                  <h2 className="text-xl font-bold group-hover:text-primary transition-colors mb-3">
-                    {page.headline}
-                  </h2>
-                  <p className="text-muted text-sm leading-relaxed mb-4">
-                    {page.subheadline}
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:gap-2 transition-all">
-                    Learn more <ArrowRight className="w-4 h-4" />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <Services />
 
       <section className="py-16 bg-blue-50">
         <div className="max-w-7xl mx-auto px-6 text-center">

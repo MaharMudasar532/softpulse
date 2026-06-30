@@ -6,6 +6,7 @@ import {
   defaultSiteSettings,
   siteSettingKeys,
 } from "@/lib/data/site-settings";
+import { unstable_noStore as noStore } from "next/cache";
 import { createStaticClient } from "@/lib/supabase/static";
 import { createClient } from "@/lib/supabase/server";
 import type { FiverrPortfolioItem, PortfolioItem, SiteSettings, Testimonial } from "@/lib/types";
@@ -110,6 +111,8 @@ export async function getTestimonials(): Promise<Testimonial[]> {
 }
 
 export async function getFiverrPortfolioItems(): Promise<FiverrPortfolioItem[]> {
+  noStore();
+
   const supabase = await createClient();
 
   if (!supabase) {
