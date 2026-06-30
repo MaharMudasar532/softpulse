@@ -11,6 +11,25 @@ import { createStaticClient } from "@/lib/supabase/static";
 import { createClient } from "@/lib/supabase/server";
 import type { FiverrPortfolioItem, PortfolioItem, SiteSettings, Testimonial } from "@/lib/types";
 
+const portfolioImageBySlug: Record<string, string> = {
+  pacepal: "/portfolio/pacepal-social-running.jpg",
+  whenn: "/portfolio/whenn-life-organizer.jpg",
+  shoof: "/portfolio/shoof-services-platform.jpg",
+  "wafaa-pro": "/portfolio/wafaa-digital-wallet.jpg",
+};
+
+function withLatestPortfolioImage(item: PortfolioItem): PortfolioItem {
+  if (!item.slug) return item;
+
+  const latestImage = portfolioImageBySlug[item.slug];
+  if (!latestImage) return item;
+
+  return {
+    ...item,
+    image_url: latestImage,
+  };
+}
+
 export async function getSiteSettings(): Promise<SiteSettings> {
   const supabase = await createClient();
 
@@ -50,7 +69,7 @@ export async function getPortfolioItems(): Promise<PortfolioItem[]> {
     return staticPortfolio;
   }
 
-  return data;
+  return data.map(withLatestPortfolioImage);
 }
 
 export async function getPortfolioItemBySlug(
@@ -73,7 +92,7 @@ export async function getPortfolioItemBySlug(
     return null;
   }
 
-  return data;
+  return withLatestPortfolioImage(data);
 }
 
 export async function getPortfolioSlugs(): Promise<string[]> {

@@ -1,6 +1,7 @@
 import { FiverrPortfolio } from "@/components/home/FiverrPortfolio";
 import { FreelancerProfile } from "@/components/home/FreelancerProfile";
 import { Hero } from "@/components/home/Hero";
+import { Services } from "@/components/home/Services";
 import { Courses } from "@/components/home/Courses";
 import { LocalSeo } from "@/components/home/LocalSeo";
 import { WhyChoose } from "@/components/home/WhyChoose";
@@ -37,6 +38,9 @@ export default async function Home() {
       />
       <AnimateIn immediate>
         <Hero settings={settings} />
+      </AnimateIn>
+      <AnimateIn delay={100}>
+        <Services />
       </AnimateIn>
       <AnimateIn delay={125}>
         <Courses />
